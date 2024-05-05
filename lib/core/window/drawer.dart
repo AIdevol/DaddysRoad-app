@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WindowDrawer extends StatelessWidget {
   const WindowDrawer({super.key});
@@ -7,12 +8,13 @@ class WindowDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Drawer(
+      // shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           _createHeader(context),
           ..._createDrawerItems(context),
-          Divider(),
+          const Divider(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Align(
@@ -28,7 +30,7 @@ class WindowDrawer extends StatelessWidget {
     );
   }
 
-  _createHeader(BuildContext context) {
+  Widget _createHeader(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.25,
       color: Colors.amber, // Using primary color from the theme
@@ -66,22 +68,45 @@ class WindowDrawer extends StatelessWidget {
       {
         'icon': Icons.group,
         'text': 'Groups',
+        'onTap': () => Navigator.pushNamed(context, '/groups'),
       },
-      {'icon': Icons.local_grocery_store_rounded, 'text': 'Store'},
-      {'icon': Icons.credit_card, 'text': 'Buy Credits'},
-      {'icon': Icons.settings, 'text': 'Account Settings'},
-      {'icon': Icons.star_half_outlined, 'text': 'Rate the app'},
-      {'icon': Icons.help, 'text': 'Help Center'},
-      {'icon': Icons.logout, 'text': 'Logout'},
+      {
+        'icon': Icons.local_grocery_store_rounded,
+        'text': 'Store',
+        'onTap': () => Navigator.pushNamed(context, '/store'),
+      },
+      {
+        'icon': Icons.credit_card,
+        'text': 'Buy Credits',
+        'onTap': () => Navigator.pushNamed(context, '/buyCredits'),
+      },
+      {
+        'icon': Icons.settings,
+        'text': 'Account Settings',
+        'onTap': () => Navigator.pushNamed(context, '/accountSettings'),
+      },
+      {
+        'icon': Icons.star_half_outlined,
+        'text': 'Rate the app',
+        'onTap': () => Navigator.pushNamed(context, '/rateApp'),
+      },
+      {
+        'icon': Icons.help,
+        'text': 'Help Center',
+        'onTap': () => Navigator.pushNamed(context, '/helpCenter'),
+      },
+      {
+        'icon': Icons.logout,
+        'text': 'Logout',
+        'onTap': () => Get.offAllNamed('/login'),
+      },
     ];
 
     return drawerItems.map((item) {
       return ListTile(
         leading: Icon(item['icon']),
         title: Text(item['text']),
-        onTap: () {
-          Navigator.pop(context);
-        },
+        onTap: item['onTap'],
       );
     }).toList();
   }

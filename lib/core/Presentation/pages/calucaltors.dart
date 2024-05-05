@@ -1,6 +1,8 @@
+import 'package:daddysroad_clone/core/Presentation/additional_pages/mileage_calculator.dart';
 import 'package:daddysroad_clone/helper/constants/image.dart';
 import 'package:daddysroad_clone/helper/constants/text_contants.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Calculators extends StatefulWidget {
   const Calculators({super.key});
@@ -11,9 +13,18 @@ class Calculators extends StatefulWidget {
 
 class _MyCalculators extends State<Calculators> {
   List<GridItem> gridItems = [
-    GridItem(title: mileage, imagePath: mileageimg),
-    GridItem(title: loan, imagePath: premiumcalculator),
-    GridItem(title: gst, imagePath: calculators1),
+    GridItem(
+        title: mileage,
+        imagePath: mileageimg,
+        onTap: () {
+          Get.to(MileagesCalculators());
+        }),
+    GridItem(
+        title: loan,
+        imagePath: premiumcalculator,
+        onTap: () => print('tappedd')),
+    GridItem(
+        title: gst, imagePath: calculators1, onTap: () => print('tappedd')),
     // GridItem(title: pshop, imagePath: punctureimg),
   ];
 
@@ -48,7 +59,7 @@ class _MyCalculators extends State<Calculators> {
         color: Colors.amber,
       ),
       child: GestureDetector(
-        onTap: () => print('${item.title} tapped...'),
+        onTap: item.onTap,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -76,6 +87,7 @@ class _MyCalculators extends State<Calculators> {
 class GridItem {
   final String title;
   final String imagePath;
+  final VoidCallback onTap;
 
-  GridItem({required this.title, required this.imagePath});
+  GridItem({required this.title, required this.imagePath, required this.onTap});
 }
