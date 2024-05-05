@@ -1,5 +1,6 @@
 import 'package:daddysroad_clone/auth/login/loginView.dart';
 import 'package:daddysroad_clone/core/window/window_components/Credit_buy.dart';
+import 'package:daddysroad_clone/core/window/window_components/acc_settings.dart';
 import 'package:daddysroad_clone/core/window/window_components/groups.dart';
 import 'package:daddysroad_clone/core/window/window_components/help_center.dart';
 import 'package:daddysroad_clone/core/window/window_components/store_screen.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/groups': (context) => GroupSection(),
         '/store': (context) => StoreScreen(),
         '/buyCredits': (context) => CreditScreen(),
-        // '/accountSettings': (context) => AccountSettingsScreen(),
+        '/accountSettings': (context) => AccountSettings(),
         // '/rateApp': (context) => RateAppScreen(),
         '/helpCenter': (context) => HelpCenter(),
         '/login': (context) => LoginPage(),

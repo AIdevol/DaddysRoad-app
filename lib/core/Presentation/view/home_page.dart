@@ -1,3 +1,4 @@
+import 'package:daddysroad_clone/core/Presentation/notification/notification_screen.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/calucaltors.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/information_gridview.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/nearestVisit.dart';
@@ -7,6 +8,7 @@ import 'package:daddysroad_clone/core/Presentation/pages/bottom_view.dart';
 
 import 'package:daddysroad_clone/core/Presentation/pages/premium.dart';
 import 'package:daddysroad_clone/core/window/drawer.dart';
+import 'package:get/get.dart';
 // import 'package:daddysroad_clone/helper/constants/text_constants.dart';
 
 import '../pages/service_call_method_ui.dart';
@@ -49,10 +51,9 @@ class HomePage extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                icon: const Icon(Icons.notifications,
-                    size: 25, color: Colors.black),
-                onPressed: () => print("Notifications button tapped!"),
-              ),
+                  icon: const Icon(Icons.notifications,
+                      size: 25, color: Colors.black),
+                  onPressed: () => Get.to(const NotificationScreen())),
               IconButton(
                 icon: const Icon(Icons.location_searching_outlined,
                     size: 25, color: Colors.black),

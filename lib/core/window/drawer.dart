@@ -88,7 +88,7 @@ class WindowDrawer extends StatelessWidget {
       {
         'icon': Icons.star_half_outlined,
         'text': 'Rate the app',
-        'onTap': () => Navigator.pushNamed(context, '/rateApp'),
+        'onTap': () => Navigator.pop(context),
       },
       {
         'icon': Icons.help,
