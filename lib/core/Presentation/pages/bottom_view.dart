@@ -90,6 +90,7 @@
 //     );
 //   }
 // }
+
 import 'package:daddysroad_clone/core/Presentation/additional_pages/QRscreen.dart';
 import 'package:daddysroad_clone/helper/constants/image.dart';
 import 'package:daddysroad_clone/helper/constants/text_contants.dart';
@@ -132,7 +133,7 @@ class _BottomViewPageState extends State<BottomViewPage> {
             buildIconButton(1, alerticon, emergency,
                 OnTap: () => _showEmergencyDialog(context)),
             buildIconButton(2, resalecar, carprice, OnTap: () {
-              Get.to(Qrscreen());
+              _launchURL('https://orangebookvalue.com/');
             }),
             buildIconButton(3, whatsappicon, chatstring, OnTap: () {
               Get.to(Qrscreen());
@@ -215,3 +216,12 @@ class _BottomViewPageState extends State<BottomViewPage> {
     }
   }
 }
+
+ Future<void> _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $urlString';
+    }
+  }
