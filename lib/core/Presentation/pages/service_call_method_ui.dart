@@ -1,5 +1,7 @@
+import 'package:daddysroad_clone/core/Presentation/additional_pages/QRscreen.dart';
 import 'package:daddysroad_clone/helper/constants/image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContainVariables extends StatelessWidget {
   const ContainVariables({super.key});
@@ -14,8 +16,9 @@ class ContainVariables extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _buildFeatureContainer(
-                context, qrlogo, "Scan QR", () => onTapQR(context)),
+            _buildFeatureContainer(context, qrlogo, "Scan QR", () {
+              Get.to(Qrscreen());
+            }),
             _buildFeatureContainer(context, carlicense, "My Vehicles",
                 () => onTapVehicles(context)),
             _buildFeatureContainer(context, serviceCall, "Call Support",

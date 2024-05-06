@@ -1,20 +1,25 @@
 import 'package:daddysroad_clone/core/Presentation/notification/notification_screen.dart';
+import 'package:daddysroad_clone/core/Presentation/pages/bottom_view.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/calucaltors.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/information_gridview.dart';
 import 'package:daddysroad_clone/core/Presentation/pages/nearestVisit.dart';
+import 'package:daddysroad_clone/core/Presentation/pages/premium.dart';
+import 'package:daddysroad_clone/core/Presentation/pages/service_call_method_ui.dart';
+import 'package:daddysroad_clone/core/window/drawer.dart';
 import 'package:daddysroad_clone/helper/constants/text_contants.dart';
 import 'package:flutter/material.dart';
-import 'package:daddysroad_clone/core/Presentation/pages/bottom_view.dart';
-
-import 'package:daddysroad_clone/core/Presentation/pages/premium.dart';
-import 'package:daddysroad_clone/core/window/drawer.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
-// import 'package:daddysroad_clone/helper/constants/text_constants.dart';
 
-import '../pages/service_call_method_ui.dart';
-
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isDialOpen = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +28,22 @@ class HomePage extends StatelessWidget {
       appBar: _buildAppBar(context),
       body: _buildBody(),
       bottomNavigationBar: const BottomViewPage(),
+      floatingActionButton: _buildSpeedDial(),
     );
   }
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.amber,
-      automaticallyImplyLeading: false,
       flexibleSpace: SafeArea(
         child: Container(
-          color: Colors.amber,
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             children: [
               Builder(
-                // Adding Builder here
                 builder: (context) => IconButton(
                   icon: const Icon(Icons.menu, size: 25, color: Colors.black),
-                  onPressed: () => Scaffold.of(context)
-                      .openDrawer(), // Now it uses the Builder's context
+                  onPressed: () => Scaffold.of(context).openDrawer(),
                   tooltip: 'Open menu',
                 ),
               ),
@@ -51,9 +53,10 @@ class HomePage extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                  icon: const Icon(Icons.notifications,
-                      size: 25, color: Colors.black),
-                  onPressed: () => Get.to(const NotificationScreen())),
+                icon: const Icon(Icons.notifications,
+                    size: 25, color: Colors.black),
+                onPressed: () => Get.to(const NotificationScreen()),
+              ),
               IconButton(
                 icon: const Icon(Icons.location_searching_outlined,
                     size: 25, color: Colors.black),
@@ -88,6 +91,43 @@ class HomePage extends StatelessWidget {
               Calculators(),
             ],
           ),
+        ),
+      ],
+    );
+  }
+
+  SpeedDial _buildSpeedDial() {
+    return SpeedDial(
+      icon: _isDialOpen ? Icons.close : Icons.add,
+      activeIcon: Icons.close,
+      visible: true,
+      curve: Curves.bounceIn,
+      overlayColor: Colors.black,
+      overlayOpacity: 0.5,
+      onOpen: () => setState(() => _isDialOpen = true),
+      onClose: () => setState(() => _isDialOpen = false),
+      backgroundColor: Colors.amber,
+      foregroundColor: Colors.black,
+      elevation: 8.0,
+      shape: CircleBorder(),
+      children: [
+        SpeedDialChild(
+          child: Icon(Icons.phone),
+          backgroundColor: Colors.green,
+          label: 'Call Police',
+          onTap: () => print('Calling Police...'),
+        ),
+        SpeedDialChild(
+          child: Icon(Icons.local_hospital),
+          backgroundColor: Colors.blue,
+          label: 'Nearest Hospital',
+          onTap: () => print('Navigating to nearest hospital...'),
+        ),
+        SpeedDialChild(
+          child: Icon(Icons.fireplace),
+          backgroundColor: Colors.orange,
+          label: 'Fire Department',
+          onTap: () => print('Calling Fire Department...'),
         ),
       ],
     );
