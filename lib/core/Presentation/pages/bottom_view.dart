@@ -217,11 +217,11 @@ class _BottomViewPageState extends State<BottomViewPage> {
   }
 }
 
- Future<void> _launchURL(String urlString) async {
-    final Uri url = Uri.parse(urlString);
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $urlString';
-    }
+Future<void> _launchURL(String urlString) async {
+  final Uri url = Uri.parse(urlString);
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $urlString';
   }
+}

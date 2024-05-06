@@ -33,3 +33,5 @@ const String qr = 'Scan QR';
 const String emergency = 'Emergency';
 const String carprice = 'Bike/Car Price';
 const String chatstring = 'Chat Support';
+const String Infodetails =
+    'Welcome to DaddysRoad vehicle safety. Here you can add your vehicles and its related documents which get linked to you mobile phone.';

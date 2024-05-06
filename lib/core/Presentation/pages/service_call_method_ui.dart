@@ -1,4 +1,5 @@
 import 'package:daddysroad_clone/core/Presentation/additional_pages/QRscreen.dart';
+import 'package:daddysroad_clone/core/Presentation/additional_pages/my_vehicles.dart';
 import 'package:daddysroad_clone/helper/constants/image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class ContainVariables extends StatelessWidget {
               Get.to(Qrscreen());
             }),
             _buildFeatureContainer(context, carlicense, "My Vehicles",
-                () => onTapVehicles(context)),
+                () => Get.to(() => MyVehicleScreen())),
             _buildFeatureContainer(context, serviceCall, "Call Support",
                 () => onTapSupport(context)),
           ],
