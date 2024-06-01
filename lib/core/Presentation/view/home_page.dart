@@ -112,19 +112,19 @@ class _HomePageState extends State<HomePage> {
       shape: CircleBorder(),
       children: [
         SpeedDialChild(
-          child: Icon(Icons.phone),
+          child: const Icon(Icons.phone),
           backgroundColor: Colors.green,
           label: 'Call Police',
           onTap: () => print('Calling Police...'),
         ),
         SpeedDialChild(
-          child: Icon(Icons.local_hospital),
+          child: const Icon(Icons.local_hospital),
           backgroundColor: Colors.blue,
           label: 'Nearest Hospital',
           onTap: () => print('Navigating to nearest hospital...'),
         ),
         SpeedDialChild(
-          child: Icon(Icons.fireplace),
+          child: const Icon(Icons.fireplace),
           backgroundColor: Colors.orange,
           label: 'Fire Department',
           onTap: () => print('Calling Fire Department...'),

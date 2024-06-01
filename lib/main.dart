@@ -26,12 +26,12 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginPage(),
       routes: {
-        '/groups': (context) => GroupSection(),
-        '/store': (context) => StoreScreen(),
-        '/buyCredits': (context) => CreditScreen(),
-        '/accountSettings': (context) => AccountSettings(),
+        '/groups': (context) => const GroupSection(),
+        '/store': (context) => const StoreScreen(),
+        '/buyCredits': (context) => const CreditScreen(),
+        '/accountSettings': (context) => const AccountSettings(),
         // '/rateApp': (context) => RateAppScreen(),
-        '/helpCenter': (context) => HelpCenter(),
+        '/helpCenter': (context) => const HelpCenter(),
         '/login': (context) => LoginPage(),
       },
     );

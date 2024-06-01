@@ -21,7 +21,7 @@ class WindowDrawer extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text(
                 "Version 3.11.13",
-                style: theme.textTheme.caption,
+                style: theme.textTheme.bodySmall,
               ),
             ),
           ),
