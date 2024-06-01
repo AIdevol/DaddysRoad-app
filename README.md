@@ -63,7 +63,7 @@ lib/
 ### Preview Video
 
 <div align="center">
-  <img src="https://github.com/AIdevol/Mx-Movie-app/blob/main/assets/images/Mx_movie_app-ezgif.com-video-to-gif-converter.gif" alt="GIF Preview" width="300"/>
+  <img src="https://github.com/AIdevol/DaddysRoad-app/blob/main/assets/Android%20Emulator%20-%20Pixel_3_Edited_API_30_5554%202024-06-01%2023-40-38.gif" alt="GIF Preview" width="300"/>
 </div>
 
 Check out the output of the project in action in this video: [DaddysRoad Clone Demo](https://www.youtube.com/watch?v=fG8j6GSrU_E&t=2s)
