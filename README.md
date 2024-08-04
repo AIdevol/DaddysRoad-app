@@ -1,5 +1,5 @@
 # DaddysRoad Clone
-
+   
 A new Flutter project aimed at cloning the features of the DaddysRoad application.
 
 ## Getting Started
